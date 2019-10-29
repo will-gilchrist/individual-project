@@ -1,0 +1,203 @@
+<html>
+<head>
+<script>
+	function request() {
+		var elmtTable = document.getElementById('btable');
+		var tableRows = elmtTable.getElementsByTagName('tr');
+		var rowCount = tableRows.length;
+
+		for (var x=rowCount-1; x>0; x--) {
+		   elmtTable.removeChild(tableRows[x]);
+		}
+		
+		const Http = new XMLHttpRequest();
+		const url = 'http://localhost:8888/findall';
+		Http.open("GET", url);
+		Http.onreadystatechange = function(e) {
+			if(Http.readyState==4){
+				data = JSON.parse(Http.responseText);
+				data.forEach(function(item) {
+					var name = document.createElement("span");
+					var price = document.createElement("span");
+					var type = document.createElement("span");
+					var colour = document.createElement("span");
+					var rating = document.createElement("span");
+					var location = document.createElement("span");
+					
+					var table = document.getElementById("btable");
+					
+					var newrow = document.createElement("tr");
+					
+					var tname = newrow.appendChild(document.createElement('td'))
+					var tprice = newrow.appendChild(document.createElement('td'))
+					var ttype = newrow.appendChild(document.createElement('td'))
+					var tcolour = newrow.appendChild(document.createElement('td'))
+					var trating = newrow.appendChild(document.createElement('td'))
+					var tlocation = newrow.appendChild(document.createElement('td'))
+					
+					tname.innerHTML = item.name;
+					tprice.innerHTML = item.price;
+					ttype.innerHTML = item.type;
+					tcolour.innerHTML = item.colour;
+					trating.innerHTML = item.rating;
+					tlocation.innerHTML = item.location;
+					
+					table.appendChild(newrow);
+				});
+			}		
+		}
+		Http.send();
+	}
+	
+	function orderByPrice() {
+		var elmtTable = document.getElementById('btable');
+		var tableRows = elmtTable.getElementsByTagName('tr');
+		var rowCount = tableRows.length;
+
+		for (var x=rowCount-1; x>0; x--) {
+		   elmtTable.removeChild(tableRows[x]);
+		}
+		
+		const Http = new XMLHttpRequest();
+		const url = 'http://localhost:8888/orderbyprice';
+		Http.open("GET", url);
+		Http.onreadystatechange = function(e) {
+			if(Http.readyState==4){
+				data = JSON.parse(Http.responseText);
+				data.forEach(function(item) {
+					var name = document.createElement("span");
+					var price = document.createElement("span");
+					var type = document.createElement("span");
+					var colour = document.createElement("span");
+					var rating = document.createElement("span");
+					var location = document.createElement("span");
+					
+					var table = document.getElementById("btable");
+					
+					var newrow = document.createElement("tr");
+					
+					var tname = newrow.appendChild(document.createElement('td'))
+					var tprice = newrow.appendChild(document.createElement('td'))
+					var ttype = newrow.appendChild(document.createElement('td'))
+					var tcolour = newrow.appendChild(document.createElement('td'))
+					var trating = newrow.appendChild(document.createElement('td'))
+					var tlocation = newrow.appendChild(document.createElement('td'))
+					
+					tname.innerHTML = item.name;
+					tprice.innerHTML = item.price;
+					ttype.innerHTML = item.type;
+					tcolour.innerHTML = item.colour;
+					trating.innerHTML = item.rating;
+					tlocation.innerHTML = item.location;
+					
+					table.appendChild(newrow);
+				});
+			}		
+		}
+		Http.send();
+	}
+	
+	function orderByName() {
+		var elmtTable = document.getElementById('btable');
+		var tableRows = elmtTable.getElementsByTagName('tr');
+		var rowCount = tableRows.length;
+
+		for (var x=rowCount-1; x>0; x--) {
+		   elmtTable.removeChild(tableRows[x]);
+		}
+		
+		const Http = new XMLHttpRequest();
+		const url = 'http://localhost:8888/orderbyname';
+		Http.open("GET", url);
+		Http.onreadystatechange = function(e) {
+			if(Http.readyState==4){
+				data = JSON.parse(Http.responseText);
+				data.forEach(function(item) {
+					var name = document.createElement("span");
+					var price = document.createElement("span");
+					var type = document.createElement("span");
+					var colour = document.createElement("span");
+					var rating = document.createElement("span");
+					var location = document.createElement("span");
+					
+					var table = document.getElementById("btable");
+					
+					var newrow = document.createElement("tr");
+					
+					var tname = newrow.appendChild(document.createElement('td'))
+					var tprice = newrow.appendChild(document.createElement('td'))
+					var ttype = newrow.appendChild(document.createElement('td'))
+					var tcolour = newrow.appendChild(document.createElement('td'))
+					var trating = newrow.appendChild(document.createElement('td'))
+					var tlocation = newrow.appendChild(document.createElement('td'))
+					
+					tname.innerHTML = item.name;
+					tprice.innerHTML = item.price;
+					ttype.innerHTML = item.type;
+					tcolour.innerHTML = item.colour;
+					trating.innerHTML = item.rating;
+					tlocation.innerHTML = item.location;
+					
+					table.appendChild(newrow);
+				});
+			}		
+		}
+		Http.send();
+	}
+</script>
+
+
+</head>
+<body>
+
+	<form action="IMDBeerLanding.html">
+		<input type="submit" value="HOME"
+			style="background-color: #331a00; color: #ffffff; position: absolute; top: 10px; left: 265px; height: 20px; width: 122px;" />
+	</form>
+
+	<form action="submitform.html">
+		<input type="submit" value="ADD BEER"
+			style="background-color: #331a00; color: #ffffff; position: absolute; top: 10px; left: 385px; height: 20px; width: 138px;" />
+	</form>
+
+	<form action="library.html">
+		<input type="submit" value="LIBRARY"
+			style="background-color: #331a00; color: #ffffff; position: absolute; top: 10px; left: 521px; height: 20px; width: 138px;" />
+	</form>
+
+	<form action="recommendations.html">
+		<input type="submit" value="RECOMMENDATIONS"
+			style="background-color: #331a00; color: #ffffff; position: absolute; top: 10px; left: 657px; height: 20px; width: 198px;" />
+	</form>
+
+	<form action="contactus.html">
+		<input type="submit" value="CONTACT US"
+			style="background-color: #331a00; color: #ffffff; position: absolute; top: 10px; left: 854px; height: 20px; width: 158px;" />
+	</form>
+	
+
+		<table id = "btable" style="width:100%; position: absolute; top: 100px; left: 1px; background-color: #331a00; color: #ffffff;">
+		 	<tr style ="color: #DAA520; background-color: #A0522D">
+			    <th align = "left">Name</th>
+			    <th align = "left">Price (£)</th>
+			    <th align = "left">Type</th>
+			    <th align = "left">Colour</th>
+			    <th align = "left">Rating (1-5)</th>
+			    <th align = "left">Location</th>
+	  		</tr>
+	
+		</table>
+
+	
+	
+	<img src='https://commonwealthskybar.com/wp-content/uploads/2018/11/cocktail-bar-background.jpg' style='position:fixed;top:0px;left:0px;width:100%;height:100%;z-index:-1;'>
+  
+
+
+	<input type="button" value="Oldest-Newest" onclick="request()"><br><br>
+	<input type="button" value="Order By Price" onclick="orderByPrice()">
+	<input type="button" value="Order By Name" onclick="orderByName()">
+
+</body>
+
+</html>
