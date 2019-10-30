@@ -5,7 +5,7 @@
 <body>
 <div
 	style="position: absolute; top: 200px; left: 52px; background-color: #331a00;">
-	<form action="library.html?" method="post" onsubmit="beerAdd()">
+	<form method="post" onsubmit="beerAdd()">
 		<font color="white"> Name: &nbsp;&nbsp;&nbsp;&nbsp; 
 			<input	type="text" id="nam" name="bnam"><br> 
 			Price:
@@ -16,7 +16,7 @@
 			name="bcol"><br> Rating: &nbsp;&nbsp;&nbsp; <input
 			type="number" id="rat" name="brat"><br> Location: <input
 			type="text" id="loc" name="bloc"><br>
-		</font> <input type="submit">
+		</font>
 	</form>
 </div>
 
@@ -38,7 +38,7 @@
 				"rating":  document.getElementById('rat').value,
 				"location": document.getElementById('loc').value
 		};
-		
+
 		alert(JSON.stringify(fd));
 		Http.onload = function(){
 			console.log("hello");
