@@ -9,20 +9,28 @@
     </style>
   </head>
   <body>
-    <h3 style = "background-color: #331a00; color: #ffffff">Brewdog Brewery, Ellon</h3>
+    <h3 style = "background-color: #331a00; color: #ffffff">View All</h3>
     <!--The div element for the map -->
     <div id="map"></div>
     <script>
 // Initialize and add the map
 function initMap() {
   // The location of brewery
-  var brewery = {lat: 57.370743, lng: -2.053119};
+  var boxsoc = {lat: 54.975735, lng: -1.718404};
+  var brewdog = {lat: 57.370743, lng: -2.053119};
+  var brooklyn = {lat: 40.721786, lng: -73.957723};
+  var carling = {lat: 52.804738, lng: -1.626849};
+  var grimbergen = {lat: 50.970605, lng: 4.190444};
 
   // The map, centered at brewery
   var map = new google.maps.Map(
-      document.getElementById('map'), {zoom: 7, center: brewery});
+      document.getElementById('map'), {zoom: 3, center: carling});
   // The marker, positioned at brewery
-  var marker = new google.maps.Marker({position: brewery, map: map});
+  var markerbox = new google.maps.Marker({position: boxsoc, map: map});
+  var markerbrew = new google.maps.Marker({position: brewdog, map: map});
+  var markerbrook = new google.maps.Marker({position: brooklyn, map: map});
+  var markercarl = new google.maps.Marker({position: carling, map: map});
+  var markergrim = new google.maps.Marker({position: grimbergen, map: map});
 
 }
 
