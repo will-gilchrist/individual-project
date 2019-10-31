@@ -7,28 +7,28 @@
 
 
 <form>
-	<table style = "position:absolute; font-size: 40px; top: 70px; left: 390px; background-color: #331a00; color: #DAA520;">
+	<table style = "position:absolute; font-size: 40px; top: 80px; left: 387px; background-color: #331a00; color: #DAA520;">
 	  <tr>
 		<td align="right">Name:</td>
-		<td align="left"><input type="text" id="nam" name="bnam" style="width: 300px; font-size: 28px;"/></td>
+		<td align="left"><input type="text" placeholder="Enter Name" id="nam" name="bnam" style="width: 300px; font-size: 28px;"/></td>
 	  </tr>
 	  <tr>
 		<td align="right">Price:</td>
-		<td align="left"><input type="number" step = "0.05" id="pri" name="bpri" style="width: 300px; font-size: 28px;" /></td>
+		<td align="left"><input type="number" placeholder="£" step = "0.05" id="pri" name="bpri" style="width: 300px; font-size: 28px;" /></td>
 	  </tr>
 	  <tr>
 		<td align="right">Type:</td>
-		<td align="left"><input type="text" id="typ" name="btyp" style="width: 300px; font-size: 28px;"/></td>
+		<td align="left"><input type="text" placeholder="See Chart..." id="typ" name="btyp" onclick="seeChart2()" style="width: 300px; font-size: 28px;"/></td>
 	  </tr>
 	  <tr>
 		<td align="right">Colour:</td>
-		<td align="left"><input type="number" id="col" name="bcol" onclick="seeChart()" style="width: 300px; font-size: 28px;"/></td>
+		<td align="left"><input type="number" placeholder="See Chart..." id="col" name="bcol" onclick="seeChart()" style="width: 300px; font-size: 28px;"/></td>
 	  </tr><tr>
 		<td align="right">Rating:</td>
-		<td align="left"><input type="number" id="rat" name="brat" style="width: 300px; font-size: 28px;"/></td>
+		<td align="left"><input type="number" placeholder="1-5" id="rat" name="brat" style="width: 300px; font-size: 28px;"/></td>
 	  </tr><tr>
 		<td align="right">Location:</td>
-		<td align="left"><input type="text" id="loc" name="bloc" style="width: 300px; font-size: 28px;"/></td>
+		<td align="left"><input type="text" placeholder="Enter Location" id="loc" name="bloc" style="width: 300px; font-size: 28px;"/></td>
 	  </tr>
 	</table>
   </form>
@@ -60,7 +60,7 @@
 				"location": document.getElementById('loc').value
 		};
 
-		alert(JSON.stringify(fd));
+		
 		Http.onload = function(){
 			console.log("hello");
 			console.log(Http.response);
@@ -78,6 +78,17 @@
 		
 		function hideChart(){
 			var ref = document.getElementById("colchart");
+			ref.style.visibility="hidden";
+		}
+
+		function seeChart2(){
+			var ref = document.getElementById("colchart2");
+			ref.style.visibility="visible";
+			setTimeout(hideChart2, 4000);
+		}
+
+		function hideChart2(){
+			var ref = document.getElementById("colchart2");
 			ref.style.visibility="hidden";
 		}
 	
@@ -149,9 +160,14 @@
 	<button onclick="beerAdd()" name="uppy" style = "position:absolute; font-size: 40px; top: 475px; left: 578px; background-color: #331a00; color: #DAA520;">Update</button>
 	<button onclick="deleteBeer()" name="deletey" style = "position:absolute; font-size: 40px; top: 475px; left: 756px; background-color: #331a00; color: #DAA520;">Delete</button>
 <img
-	src="https://www.homebrewing.org/assets/images/AIH%20SRM%20Chart%201.jpg'
-	style="visibility: hidden; position: absolute; top: 70px; left: 300px; width: 30%; height: 49%;"
+	src="https://c1.staticflickr.com/9/8097/8375530820_5fe008d541_z.jpg"
+	style="visibility: hidden; position: absolute; top: 125px; left: 870px; width: 30%; height: 41%;"
 	id="colchart"; >
+
+	<img
+	src="http://www.beerdrinkersunited.com/wp-content/uploads/2016/05/Beer-Color-Chart1.png"
+	style="visibility: hidden; position: absolute; top: 50px; left: 20px; width: 23%; height: 63%;"
+	id="colchart2"; >
 
 <img
 	src='https://commonwealthskybar.com/wp-content/uploads/2018/11/cocktail-bar-background.jpg'
