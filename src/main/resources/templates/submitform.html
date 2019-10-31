@@ -3,26 +3,47 @@
 <head></head>
 
 <body>
-<div
-	style="position: absolute; top: 200px; left: 52px; background-color: #331a00;">
-	<form method="post" onsubmit="beerAdd()">
-		<font color="white"> Name: &nbsp;&nbsp;&nbsp;&nbsp; 
-			<input	type="text" id="nam" name="bnam"><br> 
-			Price:
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" step = "0.05" id="pri"
-			name="bpri"><br> Type: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input
-			type="text" id="typ" name="btyp"><br> Colour:
-			&nbsp;&nbsp;&nbsp;<input type="number" id="col" onclick="seeChart()"
-			name="bcol"><br> Rating: &nbsp;&nbsp;&nbsp; <input
-			type="number" id="rat" name="brat"><br> Location: <input
-			type="text" id="loc" name="bloc"><br>
-		</font>
-	</form>
-</div>
 
+
+
+<form>
+	<table style = "position:absolute; font-size: 40px; top: 70px; left: 390px; background-color: #331a00; color: #DAA520;">
+	  <tr>
+		<td align="right">Name:</td>
+		<td align="left"><input type="text" id="nam" name="bnam" style="width: 300px; font-size: 28px;"/></td>
+	  </tr>
+	  <tr>
+		<td align="right">Price:</td>
+		<td align="left"><input type="number" step = "0.05" id="pri" name="bpri" style="width: 300px; font-size: 28px;" /></td>
+	  </tr>
+	  <tr>
+		<td align="right">Type:</td>
+		<td align="left"><input type="text" id="typ" name="btyp" style="width: 300px; font-size: 28px;"/></td>
+	  </tr>
+	  <tr>
+		<td align="right">Colour:</td>
+		<td align="left"><input type="number" id="col" name="bcol" onclick="seeChart()" style="width: 300px; font-size: 28px;"/></td>
+	  </tr><tr>
+		<td align="right">Rating:</td>
+		<td align="left"><input type="number" id="rat" name="brat" style="width: 300px; font-size: 28px;"/></td>
+	  </tr><tr>
+		<td align="right">Location:</td>
+		<td align="left"><input type="text" id="loc" name="bloc" style="width: 300px; font-size: 28px;"/></td>
+	  </tr>
+	</table>
+  </form>
 
 
 <script>
+
+		function deleteBeer(){
+			id = document.getElementById('nam').value;
+			const Http = new XMLHttpRequest();
+			const url='http://localhost:8888/deletebyid/' + id;
+			Http.open("DELETE", url);
+			Http.send();
+		}
+
 		let beerAdd = function(){
 		console.log("helloo");
 		const Http = new XMLHttpRequest();
@@ -124,11 +145,11 @@
 			style="background-color: #331a00; color: #ffffff; position: absolute; top: 10px; left: 854px; height: 20px; width: 158px;" />
 	</form>
 	
-	<button onclick="beerAdd()" name="addy">Send Request</button>
-	<button onclick="beerAdd()" name="uppy">Update</button>
-
+	<button onclick="beerAdd()" name="addy" style = "position:absolute; font-size: 40px; top: 475px; left: 360px; background-color: #331a00; color: #DAA520;">Add Beer</button>
+	<button onclick="beerAdd()" name="uppy" style = "position:absolute; font-size: 40px; top: 475px; left: 578px; background-color: #331a00; color: #DAA520;">Update</button>
+	<button onclick="deleteBeer()" name="deletey" style = "position:absolute; font-size: 40px; top: 475px; left: 756px; background-color: #331a00; color: #DAA520;">Delete</button>
 <img
-	src="https://www.homebrewing.org/assets/images/AIH%20SRM%20Chart%201.jpg"
+	src="https://www.homebrewing.org/assets/images/AIH%20SRM%20Chart%201.jpg'
 	style="visibility: hidden; position: absolute; top: 70px; left: 300px; width: 30%; height: 49%;"
 	id="colchart"; >
 

@@ -144,6 +144,54 @@
 		}
 		Http.send();
 	}
+
+	function orderByType() {
+		var elmtTable = document.getElementById('btable');
+		var tableRows = elmtTable.getElementsByTagName('tr');
+		var rowCount = tableRows.length;
+
+		for (var x=rowCount-1; x>0; x--) {
+		   elmtTable.removeChild(tableRows[x]);
+		}
+		
+		const Http = new XMLHttpRequest();
+		const url = 'http://localhost:8888/orderbytype';
+		Http.open("GET", url);
+		Http.onreadystatechange = function(e) {
+			if(Http.readyState==4){
+				data = JSON.parse(Http.responseText);
+				data.forEach(function(item) {
+					var name = document.createElement("span");
+					var price = document.createElement("span");
+					var type = document.createElement("span");
+					var colour = document.createElement("span");
+					var rating = document.createElement("span");
+					var location = document.createElement("span");
+					
+					var table = document.getElementById("btable");
+					
+					var newrow = document.createElement("tr");
+					
+					var tname = newrow.appendChild(document.createElement('td'))
+					var tprice = newrow.appendChild(document.createElement('td'))
+					var ttype = newrow.appendChild(document.createElement('td'))
+					var tcolour = newrow.appendChild(document.createElement('td'))
+					var trating = newrow.appendChild(document.createElement('td'))
+					var tlocation = newrow.appendChild(document.createElement('td'))
+					
+					tname.innerHTML = item.name;
+					tprice.innerHTML = item.price;
+					ttype.innerHTML = item.type;
+					tcolour.innerHTML = item.colour;
+					trating.innerHTML = item.rating;
+					tlocation.innerHTML = item.location;
+					
+					table.appendChild(newrow);
+				});
+			}		
+		}
+		Http.send();
+	}
 </script>
 
 
@@ -176,14 +224,14 @@
 	</form>
 	
 
-		<table id = "btable" style="width:100%; position: absolute; top: 100px; left: 1px; background-color: #331a00; color: #ffffff;">
-		 	<tr style ="color: #DAA520; background-color: #A0522D">
-			    <th align = "left">Name</th>
-			    <th align = "left">Price (£)</th>
-			    <th align = "left">Type</th>
-			    <th align = "left">Colour</th>
-			    <th align = "left">Rating (1-5)</th>
-			    <th align = "left">Location</th>
+		<table id = "btable" style="width:82%; font-size: 20px; position: absolute; top: 100px; left: 105px; background-color: #331a00; color: #ffffff;">
+		 	<tr style ="color: #DAA520; font-size: 30px; background-color: #A0522D">
+			    <th align = "center">Name</th>
+			    <th align = "center">Price (GBP)</th>
+			    <th align = "center">Type</th>
+			    <th align = "center">Colour</th>
+			    <th align = "center">Rating (1-5)</th>
+			    <th align = "center">Location</th>
 	  		</tr>
 	
 		</table>
@@ -194,9 +242,10 @@
   
 
 
-	<input type="button" value="Oldest-Newest" onclick="request()"><br><br>
-	<input type="button" value="Order By Price" onclick="orderByPrice()">
-	<input type="button" value="Order By Name" onclick="orderByName()">
+	<input type="button" value="Oldest-Newest" onclick="request()" style = "position:absolute; font-size: 30px; top: 45px; left: 45px; background-color: #331a00; color: #DAA520;"><br><br>
+	<input type="button" value="Order By Price" onclick="orderByPrice()" style = "position:absolute; font-size: 30px; top: 45px; left: 370px; background-color: #331a00; color: #DAA520;">>
+	<input type="button" value="Order By Name" onclick="orderByName()" style = "position:absolute; font-size: 30px; top: 45px; left: 695px; background-color: #331a00; color: #DAA520;">>
+	<input type="button" value="Order By Type" onclick="orderByType()" style = "position:absolute; font-size: 30px; top: 45px; left: 1020px; background-color: #331a00; color: #DAA520;">>
 
 </body>
 

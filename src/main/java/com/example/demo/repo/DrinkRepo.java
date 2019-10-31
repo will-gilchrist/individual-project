@@ -16,5 +16,6 @@ public interface DrinkRepo extends JpaRepository<Beverages, String>{
 	public ArrayList<Beverages> findByType(String S);
 	public ArrayList<Beverages> findAllByOrderByPriceAsc();
 	public ArrayList<Beverages> findAllByOrderByNameAsc();
+	public ArrayList<Beverages> findAllByOrderByTypeAsc();
 	
 }
